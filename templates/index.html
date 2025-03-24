@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Aplicación Web</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <!-- Incluir Handsontable y SheetJS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/handsontable@11.0.1/dist/handsontable.full.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/handsontable@11.0.1/dist/handsontable.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a Mi Aplicación Web</h1>
+    </header>
+    <main>
+        <section id="register">
+            <h2>Registrar Usuario</h2>
+            <form id="registerForm">
+                <label for="regUsername">Usuario:</label>
+                <input type="text" id="regUsername" name="regUsername" required>
+                <label for="regPassword">Contraseña:</label>
+                <input type="password" id="regPassword" name="regPassword" required>
+                <button type="submit">Registrar</button>
+            </form>
+        </section>
+        <section id="login">
+            <h2>Iniciar Sesión</h2>
+            <form id="loginForm">
+                <label for="username">Usuario:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Ingresar</button>
+            </form>
+        </section>
+        <section id="documentos" style="display:none;">
+            <h2>Documentos</h2>
+            <input type="file" id="fileInput" accept=".csv, .xlsx">
+            <div id="fileDisplay"></div>
+            <select id="columnSelect" style="display:none;"></select>
+            <button id="confirmColumnButton" style="display:none;">Confirmar Columna de Teléfonos</button>
+            <button id="clearFileButton" style="display:none;">Limpiar Archivo Seleccionado</button>
+            <input type="text" id="countryCode" placeholder="Código de País" style="display:none;"/>
+            <button id="addCountryCodeButton" style="display:none;">Agregar Código de País</button>
+        </section>
+        <section id="whatsapp" style="display:none;">
+            <h2>Enviar Mensaje de WhatsApp</h2>
+            <textarea id="message" name="message" placeholder="Escribe tu mensaje aquí..." required></textarea>
+            <button id="sendMessagesButton">Enviar Mensajes</button>
+            <div id="phoneNumbersDisplay"></div>
+            <div id="progressDisplay"></div>
+        </section>
+    </main>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
